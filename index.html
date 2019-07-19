@@ -333,9 +333,9 @@ Authorization: Bearer [your_jwt_token]
 
 <p>具体的には、次のような形式になります。</p>
 
-<p><code>
+<pre class="center-column">
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk
-</code></p>
+</pre>
 
 <p><strong>JWT の形式</strong></p>
 
@@ -495,7 +495,9 @@ base64 | sed <span class="s2">"s/+/-/g;s/</span><span class="se">\/</span><span 
 
 <p>最後に、これらの出力を全てドット <code>.</code> で接続して JWT の完成です。</p>
 
-<p><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25zb2xlLnJvYm90aWNjcm93ZC5jb20iLCJzdWIiOiJJam9pSWl3aVozSmhiblJ6SWpwN0ltIiwiYXVkIjoiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.LbICm0Ylbt0UFUGBRP7tqL1tT_RwH1D-XWSt_dfenUg</code></p>
+<p><code>
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25zb2xlLnJvYm90aWNjcm93ZC5jb20iLCJzdWIiOiJJam9pSWl3aVozSmhiblJ6SWpwN0ltIiwiYXVkIjoiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.LbICm0Ylbt0UFUGBRP7tqL1tT_RwH1D-XWSt_dfenUg
+</code></p>
 
 <p>出来上がった JWT を <a href="https://jwt.io">jwt.io</a> で検証してみましょう。Encoded のテキストエリアに JWT をペーストとします。
 その下に、 <code>Invalid Signature</code> と表示されたのではないでしょうか。これは署名が検証できなかったという事です。</p>
@@ -532,8 +534,10 @@ JWT は、header と payload が base64 で誰でもデコードできてしま�
 JWT は、クライアントサイドで生成することを推奨しています。お困りの事がありましたらお問い合わせください。
 </aside>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api.roboticcrowd.com/v1/token</code></p>
-<h3 id='218cca7886'>パラメーター</h3><h3 id='access_key_id'>- access_key_id</h3>
+<p><code>
+  POST https://api.roboticcrowd.com/v1/token
+</code></p>
+<h3 id='218cca7886'>パラメーター</h3><h4 id='access_key_id'>access_key_id</h4>
 <p><strong>初期値</strong></p>
 
 <p>無し、必須</p>
@@ -541,7 +545,7 @@ JWT は、クライアントサイドで生成することを推奨していま�
 <p><strong>説明</strong></p>
 
 <p>アクセスキーIDです。プロジェクトの API Key より確認できます。</p>
-<h3 id='secret_access_key'>- secret_access_key</h3>
+<h4 id='secret_access_key'>secret_access_key</h4>
 <p><strong>初期値</strong></p>
 
 <p>無し、必須 </p>
@@ -549,7 +553,7 @@ JWT は、クライアントサイドで生成することを推奨していま�
 <p><strong>説明</strong></p>
 
 <p>シークレットアクセスキーです。プロジェクトの API Key を生成した時にのみ確認できます。紛失した場合は、該当する API Key を削除し新たに作成してください。</p>
-<h3 id='expires'>- expires</h3>
+<h4 id='expires'>expires</h4>
 <p><strong>初期値</strong></p>
 
 <p>600</p>
@@ -602,7 +606,9 @@ Session Queue が作成された時に実行可能なロボットがあれば、
 <p>このエンドポイントは、実行するワークフローの ID を指定して、実行キューを作成します。
 指定できるワークフロー ID は、API Key が作成されたプロジェクト内に限ります。</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.roboticcrowd.com/v1/session_queues</code></p>
+<p><code>
+POST https://api.roboticcrowd.com/v1/session_queues
+</code></p>
 <h3 id='218cca7886-2'>パラメーター</h3><h4 id='workflow_id'>workflow_id</h4>
 <p><strong>初期値</strong></p>
 
@@ -679,7 +685,9 @@ Session Queue が作成された時に実行可能なロボットがあれば、
 </span></code></pre>
 <p>このエンドポイントは、API Key が作成されたプロジェクトの Session Queue の一覧を取得します。パラメーターとして、検索条件、ページ数、ページあたりの件数を設定できます。</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.roboticcrowd.com/v1/session_queues?page=1&amp;per_page=10&amp;query=</code></p>
+<p><code>
+  GET https://api.roboticcrowd.com/v1/session_queues?page=1&amp;per_page=10&amp;query=
+</code></p>
 <h3 id='ff199e37f9'>クエリパラメーター</h3><h4 id='query'>query</h4>
 <p><strong>初期値</strong></p>
 
