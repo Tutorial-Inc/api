@@ -385,7 +385,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 </span></code></pre>
 <p>各項目について説明していきます。</p>
 <h3 id='iss'>iss</h3>
-<p><code>iss</code> は、トークンの発行者を示すデータです。<code>access_key_id</code> もしくは、トークンを発行するサーバーのドメインなどをセットしてください。任意に設定していただいても大丈夫です。この情報は検証されません。</p>
+<p><code>iss</code> は、トークンの発行者を示すデータです。<code>access_key_id</code> を設定してください。</p>
 <h3 id='sub'>sub</h3>
 <p><code>sub</code> は、API Key を作成した時に決定される Robotic Crowd 内で一意の ID です。利用する API Key の <code>access_key_id</code> をセットしてください。 Robotic Crowd は、<code>sub</code> を一人のユーザーとして認識します。</p>
 <h3 id='aud'>aud</h3>
@@ -572,7 +572,8 @@ JWT は、クライアントサイドで生成することを推奨していま�
 <h1 id='session-queue'>Session Queue</h1>
 <p>Session Queue とは、実行キューのことです。実行が要求されると直ちに作成されます。
 Session Queue が作成された時に実行可能なロボットがあれば、ただちに実行が試みられます。
-実行が試みられると同時にロボットが割り当てられ、Session が作成されます。</p>
+実行が試みられると同時にロボットが割り当てられ、Session が作成されます。
+params 内のオブジェクトとして設定した key と value は、ワークフロー内で定義した変数の初期値を定義します。</p>
 <h2 id='8229a87602'>実行キューを作成する</h2>
 <blockquote>
 <p>POST /v1/session_queues</p>
@@ -580,7 +581,11 @@ Session Queue が作成された時に実行可能なロボットがあれば、
 <pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s2">"https://api.roboticcrowd.com/v1/session_queues"</span> <span class="se">\</span>
   --header <span class="s2">"Authorization: Bearer [jwt_token]"</span> <span class="se">\</span>
   --data <span class="s2">"{
-  </span><span class="se">\"</span><span class="s2">workflow_id</span><span class="se">\"</span><span class="s2">: [workflow_id]
+  </span><span class="se">\"</span><span class="s2">workflow_id</span><span class="se">\"</span><span class="s2">: [workflow_id],
+  </span><span class="se">\"</span><span class="s2">params</span><span class="se">\"</span><span class="s2">: {
+    </span><span class="se">\"</span><span class="s2">var1</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">this is string</span><span class="se">\"</span><span class="s2">,
+    </span><span class="se">\"</span><span class="s2">var2</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\"</span><span class="s2">this</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">is</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">array</span><span class="se">\"</span><span class="s2">]
+  }
 }"</span>
 </code></pre>
 <blockquote>
@@ -596,6 +601,10 @@ Session Queue が作成された時に実行可能なロボットがあれば、
   </span><span class="s2">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Workflow."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">var</span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+    </span><span class="err">var</span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
@@ -617,6 +626,15 @@ POST https://api.roboticcrowd.com/v1/session_queues
 <p><strong>説明</strong></p>
 
 <p>ワークフローを指定する ID です。ワークフロー ID は、Robotic Crowd のプロジェクト画面から確認できます。</p>
+<h4 id='params'>params</h4>
+<p><strong>初期値</strong></p>
+
+<p>無し、任意</p>
+
+<p><strong>説明</strong></p>
+
+<p>ワークフロー内で使用される変数の初期値を定義します。
+ワークフロー内で未定義の変数を使用することにより実行時に変数を定義することができるようになります。</p>
 <h3 id='2df46a9925'>応答</h3>
 <p>Session Queue Schema のJSONオブジェクトを返却します。</p>
 <h2 id='150cc91021'>実行キューを一覧を取得する</h2>
@@ -642,6 +660,10 @@ POST https://api.roboticcrowd.com/v1/session_queues
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
       </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">var</span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+        </span><span class="err">var</span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-1"</span><span class="w">
@@ -658,6 +680,10 @@ POST https://api.roboticcrowd.com/v1/session_queues
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
       </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">var</span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+        </span><span class="err">var</span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-2"</span><span class="w">
@@ -673,6 +699,10 @@ POST https://api.roboticcrowd.com/v1/session_queues
       </span><span class="s2">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">var</span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+        </span><span class="err">var</span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
