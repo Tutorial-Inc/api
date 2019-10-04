@@ -309,6 +309,7 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s2">"https://api.roboticcrowd.com/v1/session_queues"</span> <span class="se">\</span>
   --header <span class="s2">"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk"</span> <span class="se">\</span>
+  --header <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
   --data <span class="s2">"{
   </span><span class="se">\"</span><span class="s2">workflow_id</span><span class="se">\"</span><span class="s2">: 6391
 }"</span> 
@@ -518,6 +519,7 @@ JWT は、header と payload が base64 で誰でもデコードできてしま�
 <p>tokenを取得する</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s2">"https://api.roboticcrowd.com/v1/token"</span> <span class="se">\</span>
+  --header <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
   --data <span class="s2">"{
   </span><span class="se">\"</span><span class="s2">access_key_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">your_key_id</span><span class="se">\"</span><span class="s2">,
   </span><span class="se">\"</span><span class="s2">secret_access_key</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">your_secret_access_key</span><span class="se">\"</span><span class="s2">,
@@ -580,6 +582,7 @@ params 内のオブジェクトとして設定した key と value は、ワー�
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s2">"https://api.roboticcrowd.com/v1/session_queues"</span> <span class="se">\</span>
   --header <span class="s2">"Authorization: Bearer [jwt_token]"</span> <span class="se">\</span>
+  --header <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
   --data <span class="s2">"{
   </span><span class="se">\"</span><span class="s2">workflow_id</span><span class="se">\"</span><span class="s2">: [workflow_id],
   </span><span class="se">\"</span><span class="s2">params</span><span class="se">\"</span><span class="s2">: {
@@ -634,7 +637,8 @@ POST https://api.roboticcrowd.com/v1/session_queues
 <p><strong>説明</strong></p>
 
 <p>ワークフロー内で使用される変数の初期値を定義します。
-ワークフロー内で未定義の変数を使用することにより実行時に変数を定義することができるようになります。</p>
+ワークフロー内で未定義の変数を使用することにより実行時に変数を定義することができるようになります。
+現在のところ、ここで指定したパラメーター内に、文字列として変数リテラル <code>${...}</code> が使われていると意図しない挙動をするか例外となります。例： <code>{ var1: &quot;this is ${var1}&quot;}</code></p>
 <h3 id='2df46a9925'>応答</h3>
 <p>Session Queue Schema のJSONオブジェクトを返却します。</p>
 <h2 id='150cc91021'>実行キューを一覧を取得する</h2>
@@ -733,7 +737,8 @@ POST https://api.roboticcrowd.com/v1/session_queues
 
 <p><strong>説明</strong></p>
 
-<p>取得するページあたりの件数です。</p>
+<p>取得するページあたりの件数です。
+1ページあたりの最大数は50件です。</p>
 <h4 id='page'>page</h4>
 <p><strong>初期値</strong></p>
 
@@ -773,6 +778,8 @@ POST https://api.roboticcrowd.com/v1/session_queues
 <p>実行キューがデータベースに登録された日時が文字列として入っています。</p>
 <h4 id='workflow'>workflow</h4>
 <p>ワークフローの詳細が記述されている JSON オブジェクトです。返却される項目は、ID とワークフロー名 (name) だけです。</p>
+<h4 id='params-2'>params</h4>
+<p>実行キュー作成時に渡された変数が記述されている JSON オブジェクトです。</p>
 <h4 id='robot'>robot</h4>
 <p>ロボットの詳細が記述されている JSON オブジェクトです。返却される項目は、ID とロボット名 (name) だけです。</p>
 <h1 id='quota-2'>Quota</h1>
