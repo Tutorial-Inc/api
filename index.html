@@ -261,7 +261,10 @@
                     <a href="#8229a87602" class="toc-h2 toc-link" data-title="実行キューを作成する">実行キューを作成する</a>
                   </li>
                   <li>
-                    <a href="#150cc91021" class="toc-h2 toc-link" data-title="実行キューを一覧を取得する">実行キューを一覧を取得する</a>
+                    <a href="#7f75472535" class="toc-h2 toc-link" data-title="実行キューの一覧を取得する">実行キューの一覧を取得する</a>
+                  </li>
+                  <li>
+                    <a href="#d5f9ed0131" class="toc-h2 toc-link" data-title="実行キューを削除する">実行キューを削除する</a>
                   </li>
                   <li>
                     <a href="#session-queue-schema" class="toc-h2 toc-link" data-title="Session Queue Schema">Session Queue Schema</a>
@@ -641,7 +644,7 @@ POST https://api.roboticcrowd.com/v1/session_queues
 現在のところ、ここで指定したパラメーター内に、文字列として変数リテラル <code>${...}</code> が使われていると意図しない挙動をするか例外となります。例： <code>{ var1: &quot;this is ${var1}&quot;}</code></p>
 <h3 id='2df46a9925'>応答</h3>
 <p>Session Queue Schema のJSONオブジェクトを返却します。</p>
-<h2 id='150cc91021'>実行キューを一覧を取得する</h2>
+<h2 id='7f75472535'>実行キューの一覧を取得する</h2>
 <blockquote>
 <p>GET /v1/session_queues</p>
 </blockquote>
@@ -753,6 +756,22 @@ POST https://api.roboticcrowd.com/v1/session_queues
 <p>Session Queue Schema の JSON オブジェクトの配列が格納されています。</p>
 <h4 id='total_count'>total_count</h4>
 <p>Session Queue Schema のトータル件数が格納されています。</p>
+<h2 id='d5f9ed0131'>実行キューを削除する</h2>
+<blockquote>
+<p>DELETE /v1/session_queues/{session_queue_id}/cancel</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --location --request DELETE <span class="s2">"https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel"</span> <span class="se">\</span>
+  --header <span class="s2">"Authorization: Bearer [jwt_token]"</span> <span class="se">\</span>
+  --header <span class="s2">"content-type: application/json"</span>
+</code></pre>
+<p>このエンドポイントは、実行キューの ID を指定して、実行中のワークフローの実行をキャンセル、または実行待ちのキューの削除を行います。
+指定できる実行キュー ID は、API Key が作成されたプロジェクト内に限ります。</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>
+DELETE https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel
+</code></p>
+<h3 id='session_queue_id-id'>session_queue_id（実行キューID）の確認方法</h3>
+<p>プロジェクトの セッション画面 の ID により確認できます。</p>
 <h2 id='session-queue-schema'>Session Queue Schema</h2>
 <p>Session Queue のオブジェクトの返却は、</p>
 <h4 id='id'>id</h4>
