@@ -272,6 +272,14 @@
               </ul>
           </li>
           <li>
+            <a href="#workflow-2" class="toc-h1 toc-link" data-title="Workflow">Workflow</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#6158469c28" class="toc-h2 toc-link" data-title="ワークフロー一覧を取得する。">ワークフロー一覧を取得する。</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#quota-2" class="toc-h1 toc-link" data-title="Quota">Quota</a>
           </li>
           <li>
@@ -801,6 +809,67 @@ DELETE https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel
 <p>実行キュー作成時に渡された変数が記述されている JSON オブジェクトです。</p>
 <h4 id='robot'>robot</h4>
 <p>ロボットの詳細が記述されている JSON オブジェクトです。返却される項目は、ID とロボット名 (name) だけです。</p>
+<h1 id='workflow-2'>Workflow</h1>
+<p>Workflow とは、自動化設定そのものです。外部からワークフローを指定してSession Queue に登録する際に Workflow の ID が必要になりますが、一覧取得のエンドポイントによりIDを確認し指定することができるようになります。</p>
+<h2 id='6158469c28'>ワークフロー一覧を取得する。</h2>
+<p>このエンドポイントは、API Key が作成されたプロジェクトの Workflow の一覧を取得します。パラメーターとして、ページ数、ページあたりの件数を設定できます。パラメーターの指定がない時は、ページあたりの件数は、300件、ページは1ページ目になります。ページあたりの件数は最大で、1000まで指定できます。</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<blockquote>
+<p>GET /v1/workflows</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s2">"https://api.roboticcrowd.com/v1/workflows?page=1&amp;per_page=10"</span> <span class="se">\</span>
+  --header <span class="s2">"Authorization: Bearer [your_jwt]"</span>
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"workflows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123122</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow name1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is tutorail user's workflow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vpn_option_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"debug_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"robot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singleruntime"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"single_process_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"error_handler_workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"receiver_infos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"workflow_robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow name2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is tutorials user's workflow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vpn_option_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"debug_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"robot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singleruntime"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"single_process_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"error_handler_workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"receiver_infos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"workflow_robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+ </span><span class="p">],</span><span class="w">
+ </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='ff199e37f9-2'>クエリパラメーター</h3><h4 id='per_page-2'>per_page</h4>
+<p>初期値
+300</p>
+<h4 id='f6c2c8d0f4'>説明</h4>
+<p>取得するページあたりの件数です。 1ページあたりの最大数は1000件です。</p>
+<h4 id='page-2'>page</h4>
+<p>初期値
+1</p>
+<h4 id='f6c2c8d0f4-2'>説明</h4>
+<p>取得するページです。</p>
+<h3 id='2df46a9925-3'>応答</h3>
+<p>JSON オブジェクトを返却します。</p>
+<h4 id='workflows'>workflows</h4>
+<p>Workflow Schema の JSON オブジェクトの配列が格納されています。</p>
+<h4 id='total_count-2'>total_count</h4>
+<p>トータル件数が格納されています。</p>
 <h1 id='quota-2'>Quota</h1>
 <p>APIリクエストの制限は、各組織で契約しているロボット数に応じて決定されています。ロボット一台の契約につき、 1分ごとに60リクエストを上限としています。</p>
 <h1 id='errors'>Errors</h1>
