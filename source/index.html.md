@@ -650,6 +650,8 @@ curl --location --request GET "https://api.roboticcrowd.com/v1/workflows?page=1&
       "single_process_mode": true,
       "error_handler_workflow_id": null,
       "color": "#000000",
+      "puppeteer_version": "5.5.0",
+      "maximum_error_handling_count": 10,
       "receiver_infos": "",
       "workflow_robots": []
     },
@@ -663,6 +665,8 @@ curl --location --request GET "https://api.roboticcrowd.com/v1/workflows?page=1&
       "single_process_mode": true,
       "error_handler_workflow_id": null,
       "color": "#000000",
+      "puppeteer_version": "5.5.0",
+      "maximum_error_handling_count": 10,
       "receiver_infos": "",
       "workflow_robots": []
     }
