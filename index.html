@@ -5,9 +5,13 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Kittn API"
+        >
     <title>API Reference</title>
 
-    <style>
+    <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
@@ -42,7 +46,7 @@
 .highlight .cs {
   color: #75715e;
 }
-.highlight .c, .highlight .cd {
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
   color: #75715e;
 }
 .highlight .err {
@@ -126,7 +130,7 @@
 .highlight .s1 {
   color: #e6db74;
 }
-.highlight .s {
+.highlight .s, .highlight .sa, .highlight .dl {
   color: #e6db74;
 }
 .highlight .na {
@@ -141,16 +145,13 @@
 .highlight .ne {
   color: #a6e22e;
 }
-.highlight .nf {
+.highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
 .highlight .vc {
   color: #ffffff;
 }
 .highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
   color: #ffffff;
 }
 .highlight .ni {
@@ -165,7 +166,7 @@
 .highlight .vi {
   color: #ffffff;
 }
-.highlight .nv {
+.highlight .nv, .highlight .vm {
   color: #ffffff;
 }
 .highlight .w {
@@ -176,6 +177,9 @@
 }
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
 }
 .highlight .ow {
   color: #f92672;
@@ -196,20 +200,110 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-8fbb5bbd.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo-803ba7cc.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -223,9 +317,6 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#base-url" class="toc-h2 toc-link" data-title="Base URL">Base URL</a>
-                  </li>
-                  <li>
-                    <a href="#quota" class="toc-h2 toc-link" data-title="Quota">Quota</a>
                   </li>
               </ul>
           </li>
@@ -264,7 +355,7 @@
                     <a href="#7f75472535" class="toc-h2 toc-link" data-title="実行キューの一覧を取得する">実行キューの一覧を取得する</a>
                   </li>
                   <li>
-                    <a href="#d5f9ed0131" class="toc-h2 toc-link" data-title="実行キューを削除する">実行キューを削除する</a>
+                    <a href="#cbbd9c5e86" class="toc-h2 toc-link" data-title="実行キューをキャンセルする">実行キューをキャンセルする</a>
                   </li>
                   <li>
                     <a href="#session-queue-schema" class="toc-h2 toc-link" data-title="Session Queue Schema">Session Queue Schema</a>
@@ -280,7 +371,7 @@
               </ul>
           </li>
           <li>
-            <a href="#quota-2" class="toc-h1 toc-link" data-title="Quota">Quota</a>
+            <a href="#quota" class="toc-h1 toc-link" data-title="Quota">Quota</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -304,34 +395,32 @@
 <p><code>https://api.roboticcrowd.com/</code></p>
 
 <p>全てのエンドポイントはこのドメイン以下に設定されています。</p>
-<h2 id='quota'>Quota</h2>
-<p>APIコール回数の制限は、組織単位で決定されており、ロボット1台につき 60回/分 となっております。</p>
 <h1 id='authorization'>Authorization</h1>
 <blockquote>
 <p>cURL での認証情報の送信</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s2">"https://api.roboticcrowd.com/v1/path/to/endpoint"</span> <span class="se">\</span>
-  --header <span class="s2">"Authorization: Bearer [your_jwt_token]"</span> 
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s2">"https://api.roboticcrowd.com/v1/path/to/endpoint"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"Authorization: Bearer [your_jwt_token]"</span> 
+</code></pre></div>
 <blockquote>
 <p>*<code>path/to/endpoint</code> と <code>[your_jwt_token]</code> は、正しいエンドポイントに置き換えてください。</p>
 
 <p>例えば具体的には、次のようになります。</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s2">"https://api.roboticcrowd.com/v1/session_queues"</span> <span class="se">\</span>
-  --header <span class="s2">"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk"</span> <span class="se">\</span>
-  --header <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
-  --data <span class="s2">"{
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s2">"https://api.roboticcrowd.com/v1/session_queues"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s2">"{
   </span><span class="se">\"</span><span class="s2">workflow_id</span><span class="se">\"</span><span class="s2">: 6391
 }"</span> 
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>*<code>path/to/endpoint</code> と <code>[your_jwt_token]</code> は、正しいエンドポイントに置き換えてください。</p>
 </blockquote>
 
 <p>Robotic Crowd では、API の認証にJWTを使っています。JWTは、プロジェクト内で作成した API Key のaccess_key_id と secret_access_key から作成することができます。API Key は、
 プロジェクトオーナー権限をもつユーザーがプロジェクト管理画面から作成する事ができます。
-API Key の作成については、こちらの記事を参照してください。</p>
+API Key の作成については、<a href="https://support.roboticcrowd.com/docs/management-2/%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e8%a8%ad%e5%ae%9a/api%e3%82%ad%e3%83%bc%e3%81%ae%e7%99%ba%e8%a1%8c/">こちらの記事</a>を参照してください。</p>
 
 <p>クライアント側で JWT を作成する事を想定していますが、JWT トークンを取得するためのエンドポイントも用意しています。</p>
 
@@ -354,8 +443,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 <blockquote>
 <p>JWT の具体例</p>
 </blockquote>
-<pre class="highlight plaintext"><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk
-</code></pre>
+<div class="highlight"><pre class="highlight plaintext"><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk
+</code></pre></div>
 <p>JWT は、base64 エンコードされた、 JSON 形式の header と payload また、その両者を繋げて、ハッシュ化した signature のパートからなり、全部を <code>.</code> で繋げた文字列になります。</p>
 
 <p><code>[header].[payload].[signature]</code></p>
@@ -368,11 +457,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 <blockquote>
 <p>header</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"typ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"typ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>ヘッダーに使われる JSON は、次のようになります。</p>
 <h3 id='alg'>alg</h3>
 <p><code>alg</code> は、署名を生成するアルゴリズムを指定しています。 <code>HS256</code> となっている必要があります。</p>
@@ -382,22 +471,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 <blockquote>
 <p>payload</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"iss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"console.roboticcrowd.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IjoiIiwiZ3JhbnRzIjp7Im"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"aud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.roboticcrowd.com/"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"nbf"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450471147</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450473747</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"session_queue.write"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"session_queue.read"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"token"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"iss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"console.roboticcrowd.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IjoiIiwiZ3JhbnRzIjp7Im"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"aud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.roboticcrowd.com/"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nbf"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450471147</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450473747</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session_queue.write session_queue.read access_token.create"</span><span class="w">
+  </span><span class="err">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>各項目について説明していきます。</p>
 <h3 id='iss'>iss</h3>
-<p><code>iss</code> は、トークンの発行者を示すデータです。<code>access_key_id</code> を設定してください。</p>
+<p><code>iss</code> は、トークンの発行者を示すデータです。<code>console.roboticcrowd.com</code> を設定してください。</p>
 <h3 id='sub'>sub</h3>
 <p><code>sub</code> は、API Key を作成した時に決定される Robotic Crowd 内で一意の ID です。利用する API Key の <code>access_key_id</code> をセットしてください。 Robotic Crowd は、<code>sub</code> を一人のユーザーとして認識します。</p>
 <h3 id='aud'>aud</h3>
@@ -431,10 +517,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 </tr>
 <tr>
 <td>session_queue.read</td>
-<td>実行キューの取得ができます</td>
+<td>実行キューの取得、ワークフロー一覧の取得ができます</td>
 </tr>
 <tr>
-<td>token</td>
+<td>session_queue.delete</td>
+<td>実行キューをキャンセルできます</td>
+</tr>
+<tr>
+<td>access_token.create</td>
 <td>トークンの作成ができます</td>
 </tr>
 </tbody></table>
@@ -442,12 +532,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 <blockquote>
 <p>signature</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="nx">HMACSHA256</span><span class="p">(</span>
-  <span class="nx">base64UrlEncode</span><span class="p">(</span><span class="nx">header</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">HMACSHA256</span><span class="p">(</span>
+  <span class="nx">base64UrlEncode</span><span class="p">(</span><span class="nx">header</span><span class="p">)</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">.</span><span class="dl">"</span> <span class="o">+</span>
   <span class="nx">base64UrlEncode</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span>
-  <span class="s2">"your_secret_access_key"</span>
+  <span class="dl">"</span><span class="s2">your_secret_access_key</span><span class="dl">"</span>
 <span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>*<code>your_secret_access_key</code> は、正しいアクセスキーで置き換えてください。</p>
 
@@ -463,35 +553,34 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 <blockquote>
 <p>headerを生成する</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="nb">echo</span> -n <span class="s1">'{"alg":"HS256","typ":"JWT"}'</span> | base64
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'{"alg":"HS256","typ":"JWT"}'</span> | <span class="nb">base64</span>
 <span class="c"># eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>payloadを生成する</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="nb">echo</span> -n <span class="s1">'{"iss": "console.roboticcrowd.com","sub": "IjoiIiwiZ3JhbnRzIjp7Im","aud": "https://api.roboticcrowd.com/","nbf": 1450471147,"exp": 1450473747,"scopes": ["session_queue.write","session_queue.read","token"]}'</span> | <span class="se">\</span>
-base64 | <span class="se">\</span>
-tr -d <span class="s1">'='</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'{"iss": "console.roboticcrowd.com","sub": "IjoiIiwiZ3JhbnRzIjp7Im","aud": "https://api.roboticcrowd.com/","nbf": 1450471147,"exp": 1450473747,"scopes": "session_queue.write session_queue.read access_token.create"}'</span> | <span class="se">\</span>
+<span class="nb">base64</span> | <span class="se">\</span>
+<span class="nb">tr</span> <span class="nt">-d</span> <span class="s1">'='</span>
 
-<span class="c"># eyJpc3MiOiJjb25zb2xlLnJvYm90aWNjcm93ZC5jb20iLCJzdWIiOiJJam9pSWl3aVozSmhiblJ6SWpwN0ltIiwiYXVkIjoiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ</span>
-</code></pre>
+<span class="c"># eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9</span>
+</code></pre></div>
 <blockquote>
 <p>signatureを生成する</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>
-<span class="c"># echo -n "header.payload" | openssl dgst -binary -sha256 -hmac "secret_access_key" | base64 | sed "s/+/-/g;s/\//_/g;s/=//g"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># echo -n "header.payload" | openssl dgst -binary -sha256 -hmac "secret_access_key" | base64 | sed "s/+/-/g;s/\//_/g;s/=//g"</span>
 
-<span class="nb">echo</span> -n <span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25zb2xlLnJvYm90aWNjcm93ZC5jb20iLCJzdWIiOiJJam9pSWl3aVozSmhiblJ6SWpwN0ltIiwiYXVkIjoiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ"</span> | <span class="se">\</span>
-openssl dgst -binary -sha256 -hmac <span class="s2">"523463041EF9FFA2950D8450FEB34C88BC8692C40C9CF3C99DCDF75E270229E2"</span> | <span class="se">\</span>
-base64 | sed <span class="s2">"s/+/-/g;s/</span><span class="se">\/</span><span class="s2">/_/g;s/=//g"</span>
+<span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9"</span> | <span class="se">\</span>
+openssl dgst <span class="nt">-binary</span> <span class="nt">-sha256</span> <span class="nt">-hmac</span> <span class="s2">"523463041EF9FFA2950D8450FEB34C88BC8692C40C9CF3C99DCDF75E270229E2"</span> | <span class="se">\</span>
+<span class="nb">base64</span> | <span class="nb">sed</span> <span class="s2">"s/+/-/g;s/</span><span class="se">\/</span><span class="s2">/_/g;s/=//g"</span>
 
-<span class="c"># LbICm0Ylbt0UFUGBRP7tqL1tT_RwH1D-XWSt_dfenUg</span>
-</code></pre>
+<span class="c"># 45ervId5_CudT4hya5Tbx30OrO08KCewFQlgxU7mfew</span>
+</code></pre></div>
 <blockquote>
 <p>生成されたJWT</p>
 </blockquote>
-<pre class="highlight plaintext"><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25zb2xlLnJvYm90aWNjcm93ZC5jb20iLCJzdWIiOiJJam9pSWl3aVozSmhiblJ6SWpwN0ltIiwiYXVkIjoiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.LbICm0Ylbt0UFUGBRP7tqL1tT_RwH1D-XWSt_dfenUg
-</code></pre>
+<div class="highlight"><pre class="highlight plaintext"><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9.45ervId5_CudT4hya5Tbx30OrO08KCewFQlgxU7mfew
+</code></pre></div>
 <p>JWT を生成するには、URL-safe な base64 文字列に変換する必要があります。command line で base64 エンコードするのは、簡単のようで簡単ではありません。各OSによって微妙に仕様が異なっています。</p>
 
 <p>ここでは、macOSの例を示しています。JWT は、URL-Safe な文字列である必要があるため、<code>+</code> を <code>-</code> に、 <code>/</code> を <code>_</code> に置き換えています。さらに、base64 では、 <code>=</code> がパディングとして利用されており、これは JWT に必要がないので、削除するコマンドも含めています。</p>
@@ -508,7 +597,7 @@ base64 | sed <span class="s2">"s/+/-/g;s/</span><span class="se">\/</span><span 
 <p>最後に、これらの出力を全てドット <code>.</code> で接続して JWT の完成です。</p>
 
 <p><code>
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25zb2xlLnJvYm90aWNjcm93ZC5jb20iLCJzdWIiOiJJam9pSWl3aVozSmhiblJ6SWpwN0ltIiwiYXVkIjoiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.LbICm0Ylbt0UFUGBRP7tqL1tT_RwH1D-XWSt_dfenUg
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9.45ervId5_CudT4hya5Tbx30OrO08KCewFQlgxU7mfew
 </code></p>
 
 <p>出来上がった JWT を <a href="https://jwt.io">jwt.io</a> で検証してみましょう。Encoded のテキストエリアに JWT をペーストとします。
@@ -529,16 +618,16 @@ JWT は、header と payload が base64 で誰でもデコードできてしま�
 <blockquote>
 <p>tokenを取得する</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s2">"https://api.roboticcrowd.com/v1/token"</span> <span class="se">\</span>
-  --header <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
-  --data <span class="s2">"{
-  </span><span class="se">\"</span><span class="s2">access_key_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">your_key_id</span><span class="se">\"</span><span class="s2">,
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s2">"https://api.roboticcrowd.com/v1/token"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s2">"{
+  </span><span class="se">\"</span><span class="s2">access_key_id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">your_access_key_id</span><span class="se">\"</span><span class="s2">,
   </span><span class="se">\"</span><span class="s2">secret_access_key</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">your_secret_access_key</span><span class="se">\"</span><span class="s2">,
   </span><span class="se">\"</span><span class="s2">expires</span><span class="se">\"</span><span class="s2">: 3600
 }"</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
-<p>*<code>your_key_id</code> と　<code>your_secret_access_key</code> は、API Key から正しい値に置き換えてください。</p>
+<p>*<code>your_access_key_id</code> と <code>your_secret_access_key</code> は、API Key から正しい値に置き換えてください。</p>
 </blockquote>
 
 <p>このエンドポイントは、JWTトークンをサーバーサイドで生成して返却します。他のエンドポイントと認証が異なっており、 <code>access_key_id</code> と <code>secret_access_key</code> を直接送信してもらうことにより認証しています。</p>
@@ -591,41 +680,41 @@ params 内のオブジェクトとして設定した key と value は、ワー�
 <blockquote>
 <p>POST /v1/session_queues</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s2">"https://api.roboticcrowd.com/v1/session_queues"</span> <span class="se">\</span>
-  --header <span class="s2">"Authorization: Bearer [jwt_token]"</span> <span class="se">\</span>
-  --header <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
-  --data <span class="s2">"{
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s2">"https://api.roboticcrowd.com/v1/session_queues"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"Authorization: Bearer [jwt_token]"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"content-type: application/json"</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s2">"{
   </span><span class="se">\"</span><span class="s2">workflow_id</span><span class="se">\"</span><span class="s2">: [workflow_id],
   </span><span class="se">\"</span><span class="s2">params</span><span class="se">\"</span><span class="s2">: {
     </span><span class="se">\"</span><span class="s2">var1</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">this is string</span><span class="se">\"</span><span class="s2">,
     </span><span class="se">\"</span><span class="s2">var2</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\"</span><span class="s2">this</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">is</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">array</span><span class="se">\"</span><span class="s2">]
   }
 }"</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123123</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123123123</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:04:01.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"running"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Workflow."</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123123123</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:04:01.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"running"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Workflow."</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard-1"</span><span class="w">
+  </span><span class="nl">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard-1"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>このエンドポイントは、実行するワークフローの ID を指定して、実行キューを作成します。
 指定できるワークフロー ID は、API Key が作成されたプロジェクト内に限ります。</p>
 <h3 id='http-request-2'>HTTP Request</h3>
@@ -656,78 +745,78 @@ POST https://api.roboticcrowd.com/v1/session_queues
 <blockquote>
 <p>GET /v1/session_queues</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s2">"https://api.roboticcrowd.com/v1/session_queues?page=1&amp;per_page=3&amp;query=before:2019-10-11%20after:2019-07-01"</span> <span class="se">\</span>
-  --header <span class="s2">"Authorization: Bearer [your_jwt]"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s2">"https://api.roboticcrowd.com/v1/session_queues?page=1&amp;per_page=3&amp;query=before:2019-10-11%20after:2019-07-01"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"Authorization: Bearer [your_jwt]"</span>
+</code></pre></div>
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"session_queues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"session_queues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">341559</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:04:01.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">341559</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:04:01.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:02:57.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
+      </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-1"</span><span class="w">
+      </span><span class="nl">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-1"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">341558</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:01:44.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:03:31.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:01:44.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">341558</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:01:44.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:03:31.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:01:44.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
+      </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-2"</span><span class="w">
+      </span><span class="nl">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-2"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">341557</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:00:38.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:01:23.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:00:38.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">341557</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:00:38.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:01:23.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:00:38.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
+      </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"var2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"this"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w"> </span><span class="s2">"array"</span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-1"</span><span class="w">
+      </span><span class="nl">"robot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12341234</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunaba-1"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1581</span><span class="w">
+  </span><span class="nl">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1581</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
 <p>このエンドポイントは、API Key が作成されたプロジェクトの Session Queue の一覧を取得します。パラメーターとして、検索条件、ページ数、ページあたりの件数を設定できます。</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>
@@ -760,18 +849,18 @@ POST https://api.roboticcrowd.com/v1/session_queues
 <p>取得するページです。</p>
 <h3 id='2df46a9925-2'>応答</h3>
 <p>JSON オブジェクトを返却します。</p>
-<h4 id='session_queue'>session_queue</h4>
+<h4 id='session_queues'>session_queues</h4>
 <p>Session Queue Schema の JSON オブジェクトの配列が格納されています。</p>
 <h4 id='total_count'>total_count</h4>
 <p>Session Queue Schema のトータル件数が格納されています。</p>
-<h2 id='d5f9ed0131'>実行キューを削除する</h2>
+<h2 id='cbbd9c5e86'>実行キューをキャンセルする</h2>
 <blockquote>
 <p>DELETE /v1/session_queues/{session_queue_id}/cancel</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --location --request DELETE <span class="s2">"https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel"</span> <span class="se">\</span>
-  --header <span class="s2">"Authorization: Bearer [jwt_token]"</span> <span class="se">\</span>
-  --header <span class="s2">"content-type: application/json"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> DELETE <span class="s2">"https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"Authorization: Bearer [jwt_token]"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"content-type: application/json"</span>
+</code></pre></div>
 <p>このエンドポイントは、実行キューの ID を指定して、実行中のワークフローの実行をキャンセル、または実行待ちのキューの削除を行います。
 指定できる実行キュー ID は、API Key が作成されたプロジェクト内に限ります。</p>
 <h3 id='http-request-4'>HTTP Request</h3>
@@ -813,48 +902,52 @@ DELETE https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel
 <p>Workflow とは、自動化設定そのものです。外部からワークフローを指定してSession Queue に登録する際に Workflow の ID が必要になりますが、一覧取得のエンドポイントによりIDを確認し指定することができるようになります。</p>
 <h2 id='6158469c28'>ワークフロー一覧を取得する。</h2>
 <p>このエンドポイントは、API Key が作成されたプロジェクトの Workflow の一覧を取得します。パラメーターとして、ページ数、ページあたりの件数を設定できます。パラメーターの指定がない時は、ページあたりの件数は、300件、ページは1ページ目になります。ページあたりの件数は最大で、1000まで指定できます。</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+
 <blockquote>
 <p>GET /v1/workflows</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s2">"https://api.roboticcrowd.com/v1/workflows?page=1&amp;per_page=10"</span> <span class="se">\</span>
-  --header <span class="s2">"Authorization: Bearer [your_jwt]"</span>
-</code></pre>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s2">"https://api.roboticcrowd.com/v1/workflows?page=1&amp;per_page=10"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"Authorization: Bearer [your_jwt]"</span>
+</code></pre></div>
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"workflows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"workflows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123122</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow name1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is tutorail user's workflow"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vpn_option_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"debug_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"robot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singleruntime"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"single_process_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"error_handler_workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"receiver_infos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"workflow_robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123122</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow name1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is tutorail user's workflow"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vpn_option_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"debug_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"robot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singleruntime"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"single_process_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"error_handler_workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiver_infos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"workflow_robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow name2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is tutorials user's workflow"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vpn_option_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"debug_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"robot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singleruntime"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"single_process_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"error_handler_workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"receiver_infos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"workflow_robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123123</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow name2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is tutorials user's workflow"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vpn_option_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"debug_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"robot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singleruntime"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"single_process_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"error_handler_workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiver_infos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"workflow_robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
     </span><span class="p">}</span><span class="w">
  </span><span class="p">],</span><span class="w">
- </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="w">
+ </span><span class="nl">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='ff199e37f9-2'>クエリパラメーター</h3><h4 id='per_page-2'>per_page</h4>
+</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>
+GET https://api.roboticcrowd.com/v1/workflows?page=1&amp;per_page=10
+</code></p>
+<h3 id='ff199e37f9-2'>クエリパラメーター</h3><h4 id='per_page-2'>per_page</h4>
 <p>初期値
 300</p>
 <h4 id='f6c2c8d0f4'>説明</h4>
@@ -870,7 +963,7 @@ DELETE https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel
 <p>Workflow Schema の JSON オブジェクトの配列が格納されています。</p>
 <h4 id='total_count-2'>total_count</h4>
 <p>トータル件数が格納されています。</p>
-<h1 id='quota-2'>Quota</h1>
+<h1 id='quota'>Quota</h1>
 <p>APIリクエストの制限は、各組織で契約しているロボット数に応じて決定されています。ロボット一台の契約につき、 1分ごとに60リクエストを上限としています。</p>
 <h1 id='errors'>Errors</h1>
 <p>Robotic Crowd が返却する API のエラーコードです。</p>
