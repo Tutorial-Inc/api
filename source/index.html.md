@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell
 
 toc_footers:
-  - <a href='https://roboticcrowd.com'>Robotic Crowd の製品ページはこちら</a>
+  - <a href='https://autoro.io'>AUTORO の製品ページはこちら</a>
 
 includes:
   - errors
@@ -21,7 +21,7 @@ meta:
 
 # Overview
 
-このドキュメントは、[Robotic Crowd](https://roboticcrowd.com) のREST APIエンドポイントと
+このドキュメントは、[AUTORO](https://autoro.io) のREST APIエンドポイントと
 その使い方をまとめています。
 
 ここではコマンドラインでの利用で記述していますので、各プログラミング言語でも同様にできますので、適宜読み替えを行なってください。
@@ -59,9 +59,9 @@ curl --location --request POST "https://api.roboticcrowd.com/v1/session_queues" 
 
 > *`path/to/endpoint` と `[your_jwt_token]` は、正しいエンドポイントに置き換えてください。
 
-Robotic Crowd では、API の認証にJWTを使っています。JWTは、プロジェクト内で作成した API Key のaccess_key_id と secret_access_key から作成することができます。API Key は、
+AUTORO では、API の認証にJWTを使っています。JWTは、プロジェクト内で作成した API Key のaccess_key_id と secret_access_key から作成することができます。API Key は、
 プロジェクトオーナー権限をもつユーザーがプロジェクト管理画面から作成する事ができます。
-API Key の作成については、[こちらの記事](https://support.roboticcrowd.com/docs/management-2/%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e8%a8%ad%e5%ae%9a/api%e3%82%ad%e3%83%bc%e3%81%ae%e7%99%ba%e8%a1%8c/)を参照してください。
+API Key の作成については、[こちらの記事](https://support.autoro.io/docs/management-2/%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e8%a8%ad%e5%ae%9a/api%e3%82%ad%e3%83%bc%e3%81%ae%e7%99%ba%e8%a1%8c/)を参照してください。
 
 クライアント側で JWT を作成する事を想定していますが、JWT トークンを取得するためのエンドポイントも用意しています。
 
@@ -92,7 +92,7 @@ JWT は、base64 エンコードされた、 JSON 形式の header と payload �
 `[header].[payload].[signature]`
 
 具体例を右側（小さい画面では下側）に表示しています。
-この形でエンコードさえrた文字列が JWT になります。
+この形でエンコードされた文字列が JWT になります。
 
 [jwt.io](https://jwt.io) でトークンを検証する事ができます。
 
@@ -140,7 +140,7 @@ JWT は、base64 エンコードされた、 JSON 形式の header と payload �
 
 ### sub
 
-`sub` は、API Key を作成した時に決定される Robotic Crowd 内で一意の ID です。利用する API Key の `access_key_id` をセットしてください。 Robotic Crowd は、`sub` を一人のユーザーとして認識します。
+`sub` は、API Key を作成した時に決定される AUTORO 内で一意の ID です。利用する API Key の `access_key_id` をセットしてください。 AUTORO は、`sub` を一人のユーザーとして認識します。
 
 ### aud
 
@@ -193,7 +193,7 @@ HMACSHA256(
 
 署名は、トークンの信頼性を担保するパートになっています。署名は、 header と payload をそれぞれ base64 エンコードした文字列を `.` で接続し、 `secret_access_key` でハッシュ値を計算したものになります。ですので、 `secret_access_key` が安全に保存されている事は非常に重要になります。
 
-Robotic Crowd では、 `secret_access_key` は、暗号化されデータベースに保存されています。生の `secret_access_key` は、API Key を生成したタイミングで一度だけ表示されます。そして2度とやりとりされることはありません。
+AUTORO では、 `secret_access_key` は、暗号化されデータベースに保存されています。生の `secret_access_key` は、API Key を生成したタイミングで一度だけ表示されます。そして2度とやりとりされることはありません。
 
 署名を検証することにより、ペイロードが改ざんされていないことを確認する事ができます。
 
@@ -408,7 +408,7 @@ POST https://api.roboticcrowd.com/v1/session_queues
 
 **説明**
 
-ワークフローを指定する ID です。ワークフロー ID は、Robotic Crowd のプロジェクト画面から確認できます。
+ワークフローを指定する ID です。ワークフロー ID は、AUTORO のプロジェクト画面から確認できます。
 
 #### params
 
@@ -523,7 +523,7 @@ curl --location --request GET "https://api.roboticcrowd.com/v1/session_queues?pa
 
 **説明**
 
-検索条件を文字列で指定します。検索条件については、[こちら](https://docs.roboticcrowd.com/search/session)に詳細があります。
+検索条件を文字列で指定します。検索条件については、[こちら](https://docs.autoro.io/search/session)に詳細があります。
 
 #### per_page
 
