@@ -303,7 +303,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-803ba7cc.png" class="logo" alt="" />
+      <img src="images/logo-b8a57152.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -378,14 +378,14 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://roboticcrowd.com'>Robotic Crowd の製品ページはこちら</a></li>
+            <li><a href='https://autoro.io'>AUTORO の製品ページはこちら</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='overview'>Overview</h1>
-<p>このドキュメントは、<a href="https://roboticcrowd.com">Robotic Crowd</a> のREST APIエンドポイントと
+<p>このドキュメントは、<a href="https://autoro.io">AUTORO</a> のREST APIエンドポイントと
 その使い方をまとめています。</p>
 
 <p>ここではコマンドラインでの利用で記述していますので、各プログラミング言語でも同様にできますので、適宜読み替えを行なってください。</p>
@@ -418,9 +418,9 @@
 <p>*<code>path/to/endpoint</code> と <code>[your_jwt_token]</code> は、正しいエンドポイントに置き換えてください。</p>
 </blockquote>
 
-<p>Robotic Crowd では、API の認証にJWTを使っています。JWTは、プロジェクト内で作成した API Key のaccess_key_id と secret_access_key から作成することができます。API Key は、
+<p>AUTORO では、API の認証にJWTを使っています。JWTは、プロジェクト内で作成した API Key のaccess_key_id と secret_access_key から作成することができます。API Key は、
 プロジェクトオーナー権限をもつユーザーがプロジェクト管理画面から作成する事ができます。
-API Key の作成については、<a href="https://support.roboticcrowd.com/docs/management-2/%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e8%a8%ad%e5%ae%9a/api%e3%82%ad%e3%83%bc%e3%81%ae%e7%99%ba%e8%a1%8c/">こちらの記事</a>を参照してください。</p>
+API Key の作成については、<a href="https://support.autoro.io/docs/management-2/%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e8%a8%ad%e5%ae%9a/api%e3%82%ad%e3%83%bc%e3%81%ae%e7%99%ba%e8%a1%8c/">こちらの記事</a>を参照してください。</p>
 
 <p>クライアント側で JWT を作成する事を想定していますが、JWT トークンを取得するためのエンドポイントも用意しています。</p>
 
@@ -450,7 +450,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 <p><code>[header].[payload].[signature]</code></p>
 
 <p>具体例を右側（小さい画面では下側）に表示しています。
-この形でエンコードさえrた文字列が JWT になります。</p>
+この形でエンコードされた文字列が JWT になります。</p>
 
 <p><a href="https://jwt.io">jwt.io</a> でトークンを検証する事ができます。</p>
 <h2 id='header'>ヘッダー header</h2>
@@ -484,7 +484,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 <h3 id='iss'>iss</h3>
 <p><code>iss</code> は、トークンの発行者を示すデータです。<code>console.roboticcrowd.com</code> を設定してください。</p>
 <h3 id='sub'>sub</h3>
-<p><code>sub</code> は、API Key を作成した時に決定される Robotic Crowd 内で一意の ID です。利用する API Key の <code>access_key_id</code> をセットしてください。 Robotic Crowd は、<code>sub</code> を一人のユーザーとして認識します。</p>
+<p><code>sub</code> は、API Key を作成した時に決定される AUTORO 内で一意の ID です。利用する API Key の <code>access_key_id</code> をセットしてください。 AUTORO は、<code>sub</code> を一人のユーザーとして認識します。</p>
 <h3 id='aud'>aud</h3>
 <p><code>aud</code> は、トークンを受け取るURLです。<code>https://api.roboticcrowd.com/</code> である必要があります。</p>
 <h3 id='nbf'>nbf</h3>
@@ -545,7 +545,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 
 <p>署名は、トークンの信頼性を担保するパートになっています。署名は、 header と payload をそれぞれ base64 エンコードした文字列を <code>.</code> で接続し、 <code>secret_access_key</code> でハッシュ値を計算したものになります。ですので、 <code>secret_access_key</code> が安全に保存されている事は非常に重要になります。</p>
 
-<p>Robotic Crowd では、 <code>secret_access_key</code> は、暗号化されデータベースに保存されています。生の <code>secret_access_key</code> は、API Key を生成したタイミングで一度だけ表示されます。そして2度とやりとりされることはありません。</p>
+<p>AUTORO では、 <code>secret_access_key</code> は、暗号化されデータベースに保存されています。生の <code>secret_access_key</code> は、API Key を生成したタイミングで一度だけ表示されます。そして2度とやりとりされることはありません。</p>
 
 <p>署名を検証することにより、ペイロードが改ざんされていないことを確認する事ができます。</p>
 <h2 id='jwt'>JWT を生成する</h2>
@@ -727,7 +727,7 @@ POST https://api.roboticcrowd.com/v1/session_queues
 
 <p><strong>説明</strong></p>
 
-<p>ワークフローを指定する ID です。ワークフロー ID は、Robotic Crowd のプロジェクト画面から確認できます。</p>
+<p>ワークフローを指定する ID です。ワークフロー ID は、AUTORO のプロジェクト画面から確認できます。</p>
 <h4 id='params'>params</h4>
 <p><strong>初期値</strong></p>
 
@@ -828,7 +828,7 @@ POST https://api.roboticcrowd.com/v1/session_queues
 
 <p><strong>説明</strong></p>
 
-<p>検索条件を文字列で指定します。検索条件については、<a href="https://docs.roboticcrowd.com/search/session">こちら</a>に詳細があります。</p>
+<p>検索条件を文字列で指定します。検索条件については、<a href="https://docs.autoro.io/search/session">こちら</a>に詳細があります。</p>
 <h4 id='per_page'>per_page</h4>
 <p><strong>初期値</strong></p>
 
@@ -965,7 +965,7 @@ GET https://api.roboticcrowd.com/v1/workflows?page=1&amp;per_page=10
 <h1 id='quota'>Quota</h1>
 <p>APIリクエストの制限は、各組織で契約しているロボット数に応じて決定されています。ロボット一台の契約につき、 1分ごとに60リクエストを上限としています。</p>
 <h1 id='errors'>Errors</h1>
-<p>Robotic Crowd が返却する API のエラーコードです。</p>
+<p>AUTORO が返却する API のエラーコードです。</p>
 
 <table><thead>
 <tr>
