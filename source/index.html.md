@@ -546,6 +546,27 @@ curl --location --request GET "https://api.roboticcrowd.com/v1/session_queues?pa
 
 取得するページです。
 
+#### organization_id
+
+**初期値**
+
+無し
+
+**説明**
+
+query に workflow_id を指定するとき、組織 ID（organization_id）か プロジェクト ID（project_id）を指定する必要があります。
+
+#### project_id
+
+**初期値**
+
+無し
+
+**説明**
+
+query に workflow_id を指定するとき、組織 ID（organization_id）か プロジェクト ID（project_id）を指定する必要があります。
+
+
 ### 応答
 
 JSON オブジェクトを返却します。
