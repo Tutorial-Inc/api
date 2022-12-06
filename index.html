@@ -846,6 +846,22 @@ POST https://api.roboticcrowd.com/v1/session_queues
 <p><strong>説明</strong></p>
 
 <p>取得するページです。</p>
+<h4 id='organization_id'>organization_id</h4>
+<p><strong>初期値</strong></p>
+
+<p>無し</p>
+
+<p><strong>説明</strong></p>
+
+<p>query に workflow_id を指定するとき、組織 ID（organization_id）か プロジェクト ID（project_id）を指定する必要があります。</p>
+<h4 id='project_id'>project_id</h4>
+<p><strong>初期値</strong></p>
+
+<p>無し</p>
+
+<p><strong>説明</strong></p>
+
+<p>query に workflow_id を指定するとき、組織 ID（organization_id）か プロジェクト ID（project_id）を指定する必要があります。</p>
 <h3 id='2df46a9925-2'>応答</h3>
 <p>JSON オブジェクトを返却します。</p>
 <h4 id='session_queues'>session_queues</h4>
@@ -872,7 +888,7 @@ DELETE https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel
 <p>Session Queue のオブジェクトの返却は、</p>
 <h4 id='id'>id</h4>
 <p>作成された実行キュー（Session Queue）のIDです。</p>
-<h4 id='project_id'>project_id</h4>
+<h4 id='project_id-2'>project_id</h4>
 <p>プロジェクト ID です。</p>
 <h4 id='started_at'>started_at</h4>
 <p>直ちに実行されれば、実行が開始された日時が文字列として入っています。実行されていなければ <code>null</code> となります。</p>
